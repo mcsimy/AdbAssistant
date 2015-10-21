@@ -29,7 +29,8 @@ namespace AdbAssistant
     {
         public string defaultDevice = "";
         public Dictionary<string, string> vault = new Dictionary<string, string>();
-
+        
+        //delete???
         public object checkengine { get; private set; }
 
         public MainWindow()
@@ -90,8 +91,9 @@ namespace AdbAssistant
                         MessageBoxResult deviceIsConnected = MessageBox.Show("The device was connected", "Hey! The thing is...", MessageBoxButton.OK);
                         if (CheckEngine.DeviceListsDifferent(vault))
                         {
-                            vault = CheckEngine.DevicesAttached();
-                            comboBoxDevice.ItemsSource = vault.Keys;
+                            RefreshDevicesAndInfo();
+                            //vault = CheckEngine.DevicesAttached();
+                            //comboBoxDevice.ItemsSource = vault.Keys;
                         }
                         //else
                         //{
@@ -115,15 +117,19 @@ namespace AdbAssistant
             //if (!CheckEngine.SystemValidation(isInstaled)) Application.Current.Shutdown();
         }
 
-        // updates IDs and system versions on button click
-        private void GetSysInfo(object sender, RoutedEventArgs e)
+
+        //----------------------------------------------------------------------------------------------------
+        /// Buttons functionality
+        //----------------------------------------------------------------------------------------------------
+
+        //Captures screenshot and saves it to the host. Sorce file is deleted from a device
+        private void CaptureScreenshot(object sender, RoutedEventArgs e)
         {
             var sb = new StringBuilder();
-            sb.Append(vault[defaultDevice].ToString());
-            sb.Append(textBoxBuild.Text);
-            sb.Append(DateTime.Today.ToString("dd/MM/yyyy"));
+            sb.Append(DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss"));
             ProcessBuilder.ProcessNew("shell screencap -p /sdcard/" + sb.ToString() + ".png", defaultDevice);
-            ProcessBuilder.ProcessNew("pull /sdcard/screencap" + sb.ToString() + ".png", defaultDevice);
+            ProcessBuilder.ProcessNew("pull /sdcard/" + sb.ToString() + ".png screenshots", defaultDevice);
+            ProcessBuilder.ProcessNew("shell rm -r /sdcard/" + sb.ToString() + ".png", defaultDevice);
         }
 
         // starts HoV
@@ -154,11 +160,6 @@ namespace AdbAssistant
             {
                 if (sw.BaseStream.CanWrite)
                 {
-                    //var sb = new StringBuilder();
-                    //sb.Append("adb -s ");
-                    //sb.Append(defaultDevice);
-                    //sw.WriteLine(sb.ToString() + " shell am force-stop com.productmadness.hovmobile");
-
                     sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell am force-stop com.productmadness.hovmobile");
                     sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell input keyevent 82");
                     sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry");
@@ -211,7 +212,7 @@ namespace AdbAssistant
                 MessageBoxResult buildWasNotFound = MessageBox.Show("HoV .apk was not found on selected device", "Hey! The thing is...", MessageBoxButton.OK);
                 return;
             }
-            commandToAdb.Append(" \\");
+            commandToAdb.Append(" builds\\");
             commandToAdb.Append(str);
             str = textBoxFireOS.Text;
             if (!(str.Equals("")))
@@ -241,13 +242,55 @@ namespace AdbAssistant
             MessageBoxResult buildWasInstalled = MessageBox.Show("HoV .apk was successfully uninstalled", "Hey! The thing is...", MessageBoxButton.OK);
         }
 
+        //----------------------------------------------------------------------------------------------------
+        /// Textboxes functionality
+        //----------------------------------------------------------------------------------------------------
+
+        private void comboBoxDevice_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            defaultDevice = CheckEngine.DevicesAttached()[comboBoxDevice.SelectedItem as string];
+            GetSomeIds();
+        }
+
+        private void DeviceListPopulate(object sender, RoutedEventArgs e)
+        {
+
+            ////Get the ComboBox reference.
+            comboBoxDevice.ItemsSource = vault.Keys;
+            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+            GetSomeIds();
+            Splasher.CloseSplash();
+
+        }
+        
+        private void buttonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshDevicesAndInfo();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        //Refreshes device list and info on active device
+        private void RefreshDevicesAndInfo()
+        {
+            vault = CheckEngine.DevicesAttached();
+            //Assign the ItemsSource to the List.
+            comboBoxDevice.ItemsSource = vault.Keys;
+            //Set current device device number based on model (it's key in dictionary)
+            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+            GetSomeIds();
+        }
+
         // gets android versions and IDs
         public void GetSomeIds()
         {
             // GET ANDROID ID PROC
             string textBoxAndroidIdText = ProcessBuilder.ProcessNew("cmd.exe", "shell settings get secure android_id", defaultDevice);
             textBoxAndroidId.Text = textBoxAndroidIdText.Trim();
-            
+
             // GET ANDROID VERSION PROC
             string textBoxAndroidVersionText = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.release", defaultDevice);
             textBoxAndroidVersion.Text = textBoxAndroidVersionText.Trim();
@@ -261,7 +304,8 @@ namespace AdbAssistant
             textBoxBuild.Text = Formatter(textBoxBuildText, "versionName=");
         }
 
-        private string Formatter(String rawInput, String findRemove)
+        //Helper method that deletes empty spaces and argument string
+        public static string Formatter(String rawInput, String findRemove)
         {
             var sb = new StringBuilder();
             String result;
@@ -283,38 +327,5 @@ namespace AdbAssistant
             }
             else return "output is NULL";
         }
-
-        private void DeviceListPopulate(object sender, RoutedEventArgs e)
-        {
-
-            ////Get the ComboBox reference.
-            comboBoxDevice.ItemsSource = vault.Keys;
-            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
-            GetSomeIds();
-            Splasher.CloseSplash();
-
-        }
-
-        private void comboBoxDevice_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            defaultDevice = CheckEngine.DevicesAttached()[comboBoxDevice.SelectedItem as string];
-            GetSomeIds();
-        }
-
-        private void buttonRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            vault = CheckEngine.DevicesAttached();
-            //Assign the ItemsSource to the List.
-            comboBoxDevice.ItemsSource = vault.Keys;
-            //Set current device device number based on model (it's key in dictionary)
-            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
-            GetSomeIds();
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
     }
 }

@@ -31,3 +31,6 @@ C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Release\Sp
 C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Release\App.baml
 C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Release\SplashScreen.baml
 C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\bin\Release\Resources\SplashScreen.ico
+C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\bin\Release\AdbAssistant.exe.config
+C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Release\AdbAssistant.exe
+C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Release\AdbAssistant.pdb

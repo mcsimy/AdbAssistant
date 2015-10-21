@@ -48,19 +48,21 @@ namespace AdbAssistant
             bool isInstaled = CheckEngine.checkInstalled("Android SDK Tools");
             if (!CheckEngine.SystemValidation(isInstaled)) Application.Current.Shutdown();
             MainWindow win = new MainWindow();
-            var comboBoxDevice = sender as ComboBox;
-            win.vault = new Dictionary<string, string>();
+            //var comboBoxDevice = sender as ComboBox;
+            //win.vault = new Dictionary<string, string>();
             win.vault = CheckEngine.DevicesAttached();
+            win.comboBoxDevice.ItemsSource = win.vault.Keys;
             //Set current device device number based on model (it's key in dictionary)
             //win.defaultDevice = win.vault[comboBoxDevice.SelectedItem as string];
-            win.GetSomeIds();            
-            ProcessBuilder.ProcessNew("adb devices");
+            //win.GetSomeIds();            
+            //ProcessBuilder.ProcessNew("adb devices");
             System.Threading.Thread.Sleep(2000);
             Splasher.CloseSplash();
             win.Show();
         }
 
         
+        //Shows message in case the second instance of the app was launched
 
         public bool SignalExternalCommandLineArgs(System.Collections.Generic.IList<string> args)
         {

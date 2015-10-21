@@ -46,3 +46,6 @@ C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\Spla
 C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\SplashScreen.g.cs
 C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\AdbAssistant.csprojResolveAssemblyReference.cache
 C:\Users\m.ermachyonok\Dropbox\Projects\AdbAssistant\AdbAssistant\bin\Debug\Resources\SplashScreen.ico
+C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\bin\Debug\Resources\SplashScreen.ico
+C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\App.baml
+C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\SplashScreen.baml

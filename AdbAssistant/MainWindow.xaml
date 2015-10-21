@@ -28,7 +28,7 @@
         <Button x:Name="buttonRestart" Content="Restart" Margin="5,4.333,10.333,10.333" ToolTip="Restart Heart of Vegas" Background="#FF935BC1" Click="RestartHoV" Grid.Column="4" Grid.Row="2"/>
         <Button x:Name="buttonInstall" Content="Install" Margin="10,11,5,4" ToolTip="Select build and install it to connected device" Background="#FF935BC1" Click="InstallBuild" Grid.Column="1" Grid.Row="4"/>
         <Button x:Name="buttonUninstall" Content="Uninstall" Margin="5,11,10,4" Background="#FF935BC1" Click="UninstallHoV" Grid.Column="4" Grid.Row="4"/>
-        <Button x:Name="buttonGetIds" Content="Screenshot" Margin="10,4,5,8" Background="#FF935BC1" ToolTip="Recollect IDs from device" Click="GetSysInfo" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="buttonGetIds" Content="Screenshot" Margin="10,4,5,8" Background="#FF935BC1" ToolTip="Captures screenshot and saves it to your computer" Click="CaptureScreenshot" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="textBoxAndroidId" Height="23" Margin="80,37,8,0" Text="Android ID" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="4" Grid.Column="1"/>
         <TextBox x:Name="textBoxAndroidVersion" Height="23" Margin="80,66,8.333,0" Text="Android Version" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="4" Grid.Column="1"/>
         <TextBox x:Name="textBoxFireOS" Margin="80,94,8.333,0" Text="Fire OS" IsReadOnly="True" VerticalAlignment="Top" Height="23" Grid.Column="1" Grid.ColumnSpan="4"/>
@@ -36,9 +36,9 @@
         <Label x:Name="LableDevice" Content="Device" Margin="10,8,0,0" VerticalAlignment="Top" Foreground="#FFCDCDCD" Height="24" HorizontalAlignment="Left" Grid.Column="1" Width="47" Padding="2"/>
         <Label x:Name="labelAndroidOS" Content="Android OS" Margin="10,67,0,0" VerticalAlignment="Top" Foreground="#FFCDCDCD" Height="24" HorizontalAlignment="Left" Grid.Column="1" Width="65" Padding="2"/>
         <Label x:Name="labelFireOS" Content="Fire OS" Margin="10,94,0,0" Foreground="#FFCDCDCD" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="23" Width="47" Padding="2"/>
-        <TextBox x:Name="textBoxAPKName" Height="23" Margin="10,26.667,8.333,0" TextWrapping="Wrap" Text="APK to install" VerticalAlignment="Top" Grid.ColumnSpan="5" Grid.Row="3"/>
+        <TextBox x:Name="textBoxAPKName" Height="23" Margin="10,26.667,8.333,0" TextWrapping="Wrap" Text="APK to install" VerticalAlignment="Top" Grid.ColumnSpan="5" Grid.Row="3" IsReadOnly="True"/>
         <Label x:Name="labelAPKName" Content="Name of .apk file" Margin="10,2.667,0,0" Foreground="#FFCDCDCD" Grid.Row="3" HorizontalAlignment="Left" Grid.ColumnSpan="3" Width="96" Padding="2" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxBuild" Height="23" Margin="80,122,8.333,0" Text="Build" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="textBoxBuild" Height="23" Margin="80,122,8.333,0" Text="Build" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="4" IsReadOnly="True"/>
         <Label x:Name="labelBuild" Content="Build" Margin="10,121,0,0" VerticalAlignment="Top" Foreground="#FFCDCDCD" Height="26" HorizontalAlignment="Left" RenderTransformOrigin="2.573,0.641" Grid.Column="1" Width="37" Padding="2"/>
         <ComboBox x:Name="comboBoxDevice" Grid.ColumnSpan="4" Grid.Column="1" Margin="80,8,8,0" VerticalAlignment="Top" Height="23" SelectedIndex="0" Loaded="DeviceListPopulate" SelectionChanged="comboBoxDevice_SelectionChanged"/>
         <Button x:Name="buttonRefresh" Content="Refresh" Margin="5,4,8,8" Background="#FF935BC1" ToolTip="Recollect IDs from device" Grid.Column="4" Grid.Row="1" Click="buttonRefresh_Click"/>

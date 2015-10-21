@@ -14,9 +14,9 @@ namespace AdbAssistant
         string fireVersion;
         string buildNumber;
 
+
         public Dictionary<string, string> getDeviceConnectedList()
         {
-            //TODO
             var deviceList = new Dictionary<string, string>();
             string getDevices = ProcessBuilder.ProcessNew("/c adb devices");
             string[] deviceListTemp = getDevices.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
@@ -35,28 +35,28 @@ namespace AdbAssistant
             return deviceList;
         }
 
-        public string getAndroidID()
+        public string getAndroidID(string currentDevice)
         {
-            //TODO
-            return "value";
+            string androidId = ProcessBuilder.ProcessNew("cmd.exe", "shell settings get secure android_id", currentDevice);
+            return androidId.Trim();
         }
 
-        public string getAndroidVersion()
+        public string getAndroidVersion(string currentDevice)
         {
-            //TODO
-            return "value";
+            string androidVersion = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.release", currentDevice);
+            return androidVersion.Trim();
         }
 
-        public string getFireVersion()
+        public string getFireVersion(string currentDevice)
         {
-            //TODO
-            return "value";
+            string fireVersion = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.fireos", currentDevice);
+            return fireVersion.Trim();
         }
 
-        public string getBuildNumber()
+        public string getBuildNumber(string currentDevice)
         {
-            //TODO
-            return "value";
+            string buildNumber = ProcessBuilder.ProcessNew("cmd.exe", "shell dumpsys package com.productmadness.hovmobile", currentDevice);
+            return buildNumber = MainWindow.Formatter(buildNumber, "versionName=");
         }
 
         //Constructor
