@@ -44,17 +44,9 @@ namespace AdbAssistant
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //DeviceValues device = new DeviceValues();
-            //bool isInstaled = CheckEngine.checkInstalled("Android Studio");
-            //if (!CheckEngine.SystemValidation(true)) Application.Current.Shutdown();
+
             MainWindow win = new MainWindow();
 
-            //Version 1.1
-            //win.vault = CheckEngine.DevicesAttached();
-            //win.comboBoxDevice.ItemsSource = win.vault.Keys;
-            ////System.Threading.Thread.Sleep(2000);
-
-            //Version 1.2
             win.device.FullReinit();
             win.MapValues();
 
@@ -65,7 +57,6 @@ namespace AdbAssistant
         //Shows message in case the second instance of the app was launched
         public bool SignalExternalCommandLineArgs(System.Collections.Generic.IList<string> args)
         {
-            //cv.Show();
             MessageBoxResult mb = MessageBox.Show("SingleInstanceApp is already running","The thing is...", MessageBoxButton.OK);
             Current.MainWindow.WindowState = WindowState.Normal;
             return true;
