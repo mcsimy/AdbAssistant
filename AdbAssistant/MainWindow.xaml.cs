@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Runtime.Remoting;
 using System.Windows.Interop;
+using System.Deployment;
 
 
 
@@ -27,12 +29,14 @@ namespace AdbAssistant
     public partial class MainWindow : Window   
 
     {
-        public string defaultDevice = "";
-        public Dictionary<string, string> vault = new Dictionary<string, string>();
-        
-        //delete???
-        public object checkengine { get; private set; }
 
+        //version 1.1
+        //public string defaultDevice = "";
+        //public Dictionary<string, string> vault = new Dictionary<string, string>();
+
+        //Version 1.2
+        internal DeviceValues device = new DeviceValues();
+        
         public MainWindow()
         {
             InitializeComponent();           
@@ -55,6 +59,63 @@ namespace AdbAssistant
             }
         }
 
+
+        //Captures devices connect/disconnect
+        //Version 1.1
+        //private IntPtr HwndHandler(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        //{
+        //    if (msg == UsbNotification.WmDevicechange)
+        //    {
+        //        switch ((int)wparam)
+        //        {
+        //            case UsbNotification.DbtDeviceremovecomplete:
+        //                //device been DISCONNECTED
+        //                switch (CheckEngine.DeviceListsDifferent(vault, defaultDevice))
+        //                {
+        //                    case 0:
+        //                        break;
+        //                    case 1:
+        //                        {
+        //                            vault = CheckEngine.DevicesAttached();
+        //                            comboBoxDevice.ItemsSource = vault.Keys;
+        //                            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+        //                            break;
+        //                        }
+        //                    case -1:
+        //                        {
+        //                            vault = CheckEngine.DevicesAttached();
+        //                            comboBoxDevice.ItemsSource = vault.Keys;
+        //                            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+        //                            break;
+        //                        }
+        //                    default:
+        //                        break;
+        //                }
+        //                break;
+
+        //            case UsbNotification.DbtDevicearrival:
+        //                //device been CONNECTED
+        //                MessageBoxResult deviceIsConnected = MessageBox.Show("The device was connected", "Hey! The thing is...", MessageBoxButton.OK);
+        //                if (CheckEngine.DeviceListsDifferent(vault))
+        //                {
+        //                    RefreshDevicesAndInfo();
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("The device is not recognized as Android device", "Hey! The thing is...");
+        //                    Application.Current.Shutdown();
+        //                }
+        //                break;
+        //        }
+        //    }
+
+        //    handled = false;
+        //    return IntPtr.Zero;
+        //}
+        ////----------------------------------------------------------------------------------------------------
+
+
+        //Version 1.2
         private IntPtr HwndHandler(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
             if (msg == UsbNotification.WmDevicechange)
@@ -63,43 +124,63 @@ namespace AdbAssistant
                 {
                     case UsbNotification.DbtDeviceremovecomplete:
                         //device been DISCONNECTED
-                        switch (CheckEngine.DeviceListsDifferent(vault, defaultDevice))
+                        switch (CheckEngine.DeviceListsDifferent(device.devicesConnectedList, device.activeDeviceNo))
                         {
                             case 0:
-                                break;
+                                {
+                                    //List of devices are simmilar
+                                    //device.FullReinit();
+                                    //MapValues();
+                                    break;
+                                }
                             case 1:
                                 {
-                                    vault = CheckEngine.DevicesAttached();
-                                    comboBoxDevice.ItemsSource = vault.Keys;
-                                    defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+                                    //One of passive devices was disconnected
+                                    device.FullReinit();
+                                    MapValues();
                                     break;
                                 }
                             case -1:
                                 {
-                                    vault = CheckEngine.DevicesAttached();
-                                    comboBoxDevice.ItemsSource = vault.Keys;
-                                    defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+                                    //Active device was disconnected, new active device is set
+                                    device.FullReinit();
+                                    MapValues();
+                                    MessageBox.Show("Active device was disconnected, heil new active device", "Hey! The thing is...", MessageBoxButton.OK);
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    //Last device was disconnected, no Android devices detected on the system
+                                    device.FullReinit();
+                                    MapValues();
                                     break;
                                 }
                             default:
-                                break;
+                                {
+                                    MessageBoxResult deviceIsConnected = MessageBox.Show("Wow, something strange just happened. Please, contact the developer and let him know", "Hey! The thing is...", MessageBoxButton.OK);
+                                    break;
+                                }
                         }
                         break;
 
                     case UsbNotification.DbtDevicearrival:
                         //device been CONNECTED
-                        MessageBoxResult deviceIsConnected = MessageBox.Show("The device was connected", "Hey! The thing is...", MessageBoxButton.OK);
-                        if (CheckEngine.DeviceListsDifferent(vault))
+                        //MessageBoxResult deviceIsConnected = MessageBox.Show("The device was connected", "Hey! The thing is...", MessageBoxButton.OK);
+                        System.Threading.Thread.Sleep(1000);
+                        if (CheckEngine.DeviceListsDifferent(device.devicesConnectedList))
                         {
-                            RefreshDevicesAndInfo();
-                            //vault = CheckEngine.DevicesAttached();
-                            //comboBoxDevice.ItemsSource = vault.Keys;
+                            //device.getDeviceConnectedList();
+                            //device.activeDeviceModel = comboBoxDevice.SelectedItem.ToString();
+                            //device.activeDeviceNo = device.devicesConnectedList[comboBoxDevice.SelectedItem.ToString()];
+                            device.FullReinit();
+                            MapValues();
+
                         }
-                        //else
-                        //{
-                        //    MessageBox.Show("The device is not recognized as Android device", "Hey! The thing is...");
-                        //    Application.Current.Shutdown();
-                        //}
+                        else
+                        {
+                            //To debug device not being recognized as Android one uncomment line below
+                            //MessageBox.Show("The device is not recognized as Android device", "Hey! The thing is...");
+                        }
                         break;
                 }
             }
@@ -107,14 +188,26 @@ namespace AdbAssistant
             handled = false;
             return IntPtr.Zero;
         }
-        //----------------------------------------------------------------------------------------------------
-
 
         //populates android versions and IDs on app start
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //bool isInstaled = CheckEngine.checkInstalled("Android SDK Tools");
-            //if (!CheckEngine.SystemValidation(isInstaled)) Application.Current.Shutdown();
+            //device.devicesConnectedList = device.getDeviceConnectedList();
+            //MapValues();
+
+            //string version = null;
+            //try
+            //{
+
+            //    //// get deployment version
+            //    version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            //}
+            //catch (InvalidDeploymentException)
+            //{
+            //    //// you cannot read publish version when app isn't installed 
+            //    //// (e.g. during debug)
+            //    version = "not installed";
+            //}
         }
 
 
@@ -125,28 +218,67 @@ namespace AdbAssistant
         //Captures screenshot and saves it to the host. Sorce file is deleted from a device
         private void CaptureScreenshot(object sender, RoutedEventArgs e)
         {
+            //Version 1.1
+            //var sb = new StringBuilder();
+            //sb.Append(DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss"));
+            //ProcessBuilder.ProcessNew("shell screencap -p /sdcard/" + sb.ToString() + ".png", defaultDevice);
+            //ProcessBuilder.ProcessNew("pull /sdcard/" + sb.ToString() + ".png screenshots", defaultDevice);
+            //ProcessBuilder.ProcessNew("shell rm -r /sdcard/" + sb.ToString() + ".png", defaultDevice);
+
+            //Version 1.2
             var sb = new StringBuilder();
             sb.Append(DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss"));
-            ProcessBuilder.ProcessNew("shell screencap -p /sdcard/" + sb.ToString() + ".png", defaultDevice);
-            ProcessBuilder.ProcessNew("pull /sdcard/" + sb.ToString() + ".png screenshots", defaultDevice);
-            ProcessBuilder.ProcessNew("shell rm -r /sdcard/" + sb.ToString() + ".png", defaultDevice);
+            ProcessBuilder.ProcessNew("shell screencap -p /sdcard/" + sb.ToString() + ".png", device.activeDeviceNo);
+            ProcessBuilder.ProcessNew("pull /sdcard/" + sb.ToString() + ".png screenshots", device.activeDeviceNo);
+            ProcessBuilder.ProcessNew("shell rm -r /sdcard/" + sb.ToString() + ".png", device.activeDeviceNo);
         }
 
         // starts HoV
         private void LaunchHoV(object sender, RoutedEventArgs e)
         {
-            ProcessBuilder.ProcessNew("shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry", defaultDevice);
+            //Version 1.1
+            //ProcessBuilder.ProcessNew("shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry", defaultDevice);
+
+            //Version 1.2
+            ProcessBuilder.ProcessNew("shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry", device.activeDeviceNo);
         }
 
         // stops HoV
         private void KillHoV(object sender, RoutedEventArgs e)
         {
-            ProcessBuilder.ProcessNew("shell am force-stop com.productmadness.hovmobile", defaultDevice);
+            //Version 1.1
+            //ProcessBuilder.ProcessNew("shell am force-stop com.productmadness.hovmobile", defaultDevice);
+
+            //Version 1.2
+            ProcessBuilder.ProcessNew("shell am force-stop com.productmadness.hovmobile", device.activeDeviceNo);
+
         }
 
         // restarts HoV
         private void RestartHoV(object sender, RoutedEventArgs e)
         {
+            //Version 1.1
+            //var processInfo = new ProcessStartInfo("cmd.exe");
+            //processInfo.RedirectStandardOutput = true;
+            //processInfo.RedirectStandardInput = true;
+            //processInfo.UseShellExecute = false;
+            //processInfo.CreateNoWindow = true;
+            //var process = new Process();
+            //process.StartInfo = processInfo;
+            //process.Start();
+
+            //using (StreamWriter sw = process.StandardInput)
+            //{
+            //    if (sw.BaseStream.CanWrite)
+            //    {
+            //        sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell am force-stop com.productmadness.hovmobile");
+            //        sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell input keyevent 82");
+            //        sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry");
+            //        sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell input keyevent 82");
+            //    }
+            //}
+
+            //Version 1.2
             var processInfo = new ProcessStartInfo("cmd.exe");
             processInfo.RedirectStandardOutput = true;
             processInfo.RedirectStandardInput = true;
@@ -160,21 +292,21 @@ namespace AdbAssistant
             {
                 if (sw.BaseStream.CanWrite)
                 {
-                    sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell am force-stop com.productmadness.hovmobile");
-                    sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell input keyevent 82");
-                    sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry");
-                    sw.WriteLine("adb -s " + defaultDevice.ToString() + " shell input keyevent 82");
+                    sw.WriteLine("adb -s " + device.activeDeviceNo + " shell am force-stop com.productmadness.hovmobile");
+                    //sw.WriteLine("adb -s " + device.activeDeviceNo + " shell input keyevent 82");
+                    sw.WriteLine("adb -s " + device.activeDeviceNo + " shell am start -n com.productmadness.hovmobile/com.productmadness.hovmobile.AppEntry");
+                    //sw.WriteLine("adb -s " + device.activeDeviceNo + " shell input keyevent 82");
                 }
             }
         }
 
         // installs selected build to a device
         private void InstallBuild(object sender, RoutedEventArgs e)
-        {
+        {            
             // opens "select apk" dialog
             string pathToApk = "buildLib";
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.InitialDirectory = @"Builds";
             openFileDialog.Title = "Choose your .apk file...";
             openFileDialog.FileName = "Choose file";
             openFileDialog.CheckFileExists = true;
@@ -185,26 +317,52 @@ namespace AdbAssistant
                 pathToApk = openFileDialog.FileName;
                 textBoxAPKName.Text = openFileDialog.SafeFileName;
             }
-            var processInfo = new ProcessStartInfo("cmd.exe", "/c adb " + "-s " + defaultDevice + " install " + pathToApk);
+
+            //Version 1.1
+            //var processInfo = new ProcessStartInfo("cmd.exe", "/c adb " + "-s " + defaultDevice + " install " + pathToApk);
+
+            //Version 1.2
+            //taskStatus.Visibility = Visibility.Visible;
+            var processInfo = new ProcessStartInfo("cmd.exe", "/c adb " + "-s " + device.activeDeviceNo + " install " + pathToApk);
+
             processInfo.RedirectStandardOutput = true;
             processInfo.UseShellExecute = false;
             processInfo.CreateNoWindow = true;
             var process = new Process();
             process.StartInfo = processInfo;
             process.Start();
+            string result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
-            MessageBoxResult buildWasInstalled = MessageBox.Show("HoV .apk was successfully installed", "Hey! The thing is...", MessageBoxButton.OK);
+            
+            device.buildNumber = device.getBuildNumber(device.activeDeviceNo);
+            textBoxBuild.Text = device.buildNumber;
+            if (result.Contains("Success"))
+            {
+                MessageBoxResult buildWasInstalled = MessageBox.Show("HoV .apk was successfully installed", "Hey! The thing is...", MessageBoxButton.OK);
+            }
+            //taskStatus.Visibility = Visibility.Hidden;
 
         }
 
         // pulls HoV from a device
         private void PullHoV(object sender, RoutedEventArgs e)
         {
-            var pathToApk = ProcessBuilder.ProcessNew("cmd.exe", "shell pm path com.productmadness.hovmobile", defaultDevice);
+            //Version 1.1
+            //var pathToApk = ProcessBuilder.ProcessNew("cmd.exe", "shell pm path com.productmadness.hovmobile", defaultDevice);
+
+            //Version 1.2
+            var pathToApk = ProcessBuilder.ProcessNew("cmd.exe", "shell pm path com.productmadness.hovmobile", device.activeDeviceNo);
+
             var commandToAdb = new StringBuilder();
-            commandToAdb.Append("/c adb -s ");
-            commandToAdb.Append(defaultDevice);
-            commandToAdb.Append(" pull ");
+            //commandToAdb.Append("/c adb -s ");
+
+            //Version 1.1
+            //commandToAdb.Append(defaultDevice);
+
+            //Version 1.2
+            //commandToAdb.Append(device.activeDeviceNo);
+
+            commandToAdb.Append("pull ");
             commandToAdb.Append(Formatter(pathToApk, "package:"));
             var str = textBoxBuild.Text;
             if (str.Equals("no desirable element found") || str.Equals(null))
@@ -221,9 +379,10 @@ namespace AdbAssistant
             }
             commandToAdb.Append(".apk");
 
-            var process = Process.Start("cmd.exe", commandToAdb.ToString());
-            process.WaitForExit();
-            MessageBoxResult buildWasPulled = MessageBox.Show("HoV .apk was successfully pulled to AdbAssistant Library", "Hey! The thing is...", MessageBoxButton.OK);
+            //var process = Process.Start("cmd.exe", commandToAdb.ToString());
+            //process.WaitForExit();
+            var pullInfo = ProcessBuilder.ProcessNew("cmd.exe", commandToAdb.ToString(), device.activeDeviceNo);
+            MessageBoxResult buildWasPulled = MessageBox.Show(device.buildNumber + " build was successfully pulled", "Hey! The thing is...", MessageBoxButton.OK);
         }
 
         // uninstalls HoV from a device
@@ -236,7 +395,14 @@ namespace AdbAssistant
                 return;
             }
 
-            ProcessBuilder.ProcessNew("shell pm uninstall com.productmadness.hovmobile", defaultDevice);
+            //Version 1.1
+            //ProcessBuilder.ProcessNew("shell pm uninstall com.productmadness.hovmobile", defaultDevice);
+
+            //Version 1.2
+            ProcessBuilder.ProcessNew("shell pm uninstall com.productmadness.hovmobile", device.activeDeviceNo);
+            device.buildNumber = device.getBuildNumber(device.activeDeviceNo);
+            textBoxBuild.Text = device.buildNumber;
+
             //var process = Process.Start("cmd.exe", "/c adb shell pm uninstall com.productmadness.hovmobile");
             //process.WaitForExit();
             MessageBoxResult buildWasInstalled = MessageBox.Show("HoV .apk was successfully uninstalled", "Hey! The thing is...", MessageBoxButton.OK);
@@ -248,24 +414,35 @@ namespace AdbAssistant
 
         private void comboBoxDevice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            defaultDevice = CheckEngine.DevicesAttached()[comboBoxDevice.SelectedItem as string];
-            GetSomeIds();
+            //Version 1.1
+            //defaultDevice = CheckEngine.DevicesAttached()[comboBoxDevice.SelectedItem as string];
+            //GetSomeIds();
+
+            //Version 1.2
+            if (comboBoxDevice.SelectedItem != null)
+            {
+                device.activeDeviceModel = comboBoxDevice.SelectedItem.ToString();
+                device.activeDeviceNo = device.devicesConnectedList[comboBoxDevice.SelectedItem.ToString()];
+                device.PartialReinit();
+                MapValues();
+            }
+
+
         }
 
         private void DeviceListPopulate(object sender, RoutedEventArgs e)
         {
-
-            ////Get the ComboBox reference.
-            comboBoxDevice.ItemsSource = vault.Keys;
-            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
-            GetSomeIds();
             Splasher.CloseSplash();
-
         }
         
         private void buttonRefresh_Click(object sender, RoutedEventArgs e)
         {
-            RefreshDevicesAndInfo();
+            //Version 1.1
+            //RefreshDevicesAndInfo();
+
+            //Version 1.2
+            device.FullReinit();
+            MapValues();
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -276,32 +453,54 @@ namespace AdbAssistant
         //Refreshes device list and info on active device
         private void RefreshDevicesAndInfo()
         {
-            vault = CheckEngine.DevicesAttached();
-            //Assign the ItemsSource to the List.
-            comboBoxDevice.ItemsSource = vault.Keys;
-            //Set current device device number based on model (it's key in dictionary)
-            defaultDevice = vault[comboBoxDevice.SelectedItem as string];
-            GetSomeIds();
+            //Version 1.1
+            //vault = CheckEngine.DevicesAttached();
+            ////Assign the ItemsSource to the List.
+            //comboBoxDevice.ItemsSource = vault.Keys;
+            ////Set current device device number based on model (it's key in dictionary)
+            //defaultDevice = vault[comboBoxDevice.SelectedItem as string];
+            //GetSomeIds();
+
+            //Version 1.2
+            device.FullReinit();
+            MapValues();
         }
 
-        // gets android versions and IDs
-        public void GetSomeIds()
+        //Version 1.1
+        //// gets android versions and IDs
+        //public void GetSomeIds()
+        //{
+        //    // GET ANDROID ID PROC
+        //    string textBoxAndroidIdText = ProcessBuilder.ProcessNew("cmd.exe", "shell settings get secure android_id", defaultDevice);
+        //    textBoxAndroidId.Text = textBoxAndroidIdText.Trim();
+
+        //    // GET ANDROID VERSION PROC
+        //    string textBoxAndroidVersionText = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.release", defaultDevice);
+        //    textBoxAndroidVersion.Text = textBoxAndroidVersionText.Trim();
+
+        //    // GET FIRE OS VERSION PROC
+        //    string textBoxFireOSText = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.fireos", defaultDevice);
+        //    textBoxFireOS.Text = textBoxFireOSText.Trim();
+
+        //    // GET BUILD VERSION PROC
+        //    string textBoxBuildText = ProcessBuilder.ProcessNew("cmd.exe", "shell dumpsys package com.productmadness.hovmobile", defaultDevice);
+        //    textBoxBuild.Text = Formatter(textBoxBuildText, "versionName=");
+        //}
+
+        //Version 1.2
+        public void MapValues()
         {
-            // GET ANDROID ID PROC
-            string textBoxAndroidIdText = ProcessBuilder.ProcessNew("cmd.exe", "shell settings get secure android_id", defaultDevice);
-            textBoxAndroidId.Text = textBoxAndroidIdText.Trim();
+            comboBoxDevice.ItemsSource = device.devicesConnectedList.Keys;
 
-            // GET ANDROID VERSION PROC
-            string textBoxAndroidVersionText = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.release", defaultDevice);
-            textBoxAndroidVersion.Text = textBoxAndroidVersionText.Trim();
+            comboBoxDevice.SelectedItem = device.activeDeviceModel; 
+               
+            textBoxAndroidId.Text = device.androidId;
 
-            // GET FIRE OS VERSION PROC
-            string textBoxFireOSText = ProcessBuilder.ProcessNew("cmd.exe", "shell getprop ro.build.version.fireos", defaultDevice);
-            textBoxFireOS.Text = textBoxFireOSText.Trim();
+            textBoxAndroidVersion.Text = device.androidVersion;
 
-            // GET BUILD VERSION PROC
-            string textBoxBuildText = ProcessBuilder.ProcessNew("cmd.exe", "shell dumpsys package com.productmadness.hovmobile", defaultDevice);
-            textBoxBuild.Text = Formatter(textBoxBuildText, "versionName=");
+            textBoxFireOS.Text = device.fireVersion;
+          
+            textBoxBuild.Text = device.buildNumber;
         }
 
         //Helper method that deletes empty spaces and argument string
@@ -326,6 +525,16 @@ namespace AdbAssistant
                 return "no desirable element found";
             }
             else return "output is NULL";
+        }
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Topmost = true;
+        }
+
+        private void checkBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Topmost = false;
         }
     }
 }

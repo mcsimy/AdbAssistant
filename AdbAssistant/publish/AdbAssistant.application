@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <assemblyIdentity name="AdbAssistant.application" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <description asmv2:publisher="McS" asmv2:product="AdbAssistant" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true">
+    <subscription>
+      <update>
+        <beforeApplicationStartup />
+      </update>
+    </subscription>
+    <deploymentProvider codebase="file://localhost/Users/Maksim/Desktop/UAT/AdbAssistant.application" />
+  </deployment>
+  <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
+    <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
+  </compatibleFrameworks>
+  <dependency>
+    <dependentAssembly dependencyType="install" codebase="Application Files\AdbAssistant_1_0_0_6\AdbAssistant.exe.manifest" size="15023">
+      <assemblyIdentity name="AdbAssistant.exe" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" type="win32" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>juqsRl63El+NTqvHBopLtQvlgNKwMdrlD7m0OKEzZME=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=LUNAM\Maksim" issuerKeyHash="92bd6ee610b7b7b9fc28babefc5913a7cd813a39" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>B0cQLoi3Teh9zaNb2d9xcS6++PvAjOGc5zDMLrldhP8=</DigestValue></Reference></SignedInfo><SignatureValue>d25bH+k5W0OAxieHLynPk4NQynwEi1XCoNtk3dD0Q4oFGgV77UQ2RFtKMnYRgW3H9Jrg9o7h7O8JjyXYYB5eJ/IOWXbaB/gn2FjhphVUKj+g+ovK++2VAf4euGqdQFsugt45eApoVK4z9Y7M3Og7laqVE7vgTSdrD6jrD4QNACY=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tr2IywY6uEVxP8K99snSoruVSk12hJKA+SgMjcWCsGhOEOaeZF0jkbI5T5ruwJL7p6BOQgF4JNi16+U7LpOfFvnSw+vboRc7nFfWVYKO2BSEf0CVjRsXs+LyxstWCXgAFvR9pf9gj3ZI5ZEXksHksGaC2ICJhPWvOOYToqf0Us0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ff845db92ecc30e79ce18cc0fbf8be2e7171dfd95ba3cd7de84db7882e104707" Description="" Url=""><as:assemblyIdentity name="AdbAssistant.application" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LUNAM\Maksim</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>681b0Gjs2m54Caz5bDBpQH7GOj/WHZHUfdbH7YqhY84=</DigestValue></Reference></SignedInfo><SignatureValue>po2uyNP84C/OXZJD2fMP/JJ/jE5QrRCznsKzyUnGtX7ObGIK7dlSA/WWQJgb3QrqUwPRJ5CdTEJ/rYQlqI1RgZC8nf+cclpliGx5HQPfqlP5H9ScmO32XnFdjYLMGmSfk5X+j8Qo/qwW6SyG7Gh8joM/VfL0oLctdWbjPmxdL9s=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tr2IywY6uEVxP8K99snSoruVSk12hJKA+SgMjcWCsGhOEOaeZF0jkbI5T5ruwJL7p6BOQgF4JNi16+U7LpOfFvnSw+vboRc7nFfWVYKO2BSEf0CVjRsXs+LyxstWCXgAFvR9pf9gj3ZI5ZEXksHksGaC2ICJhPWvOOYToqf0Us0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQRVAg4anVYIVFHGtLosj6ZTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgATABVAE4AQQBNAFwATQBhAGsAcwBpAG0wHhcNMTUxMDI1MDgwMjU1WhcNMTYxMDI0MTQwMjU1WjAjMSEwHwYDVQQDHhgATABVAE4AQQBNAFwATQBhAGsAcwBpAG0wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALa9iMsGOrhFcT/CvfbJ0qK7lUpNdoSSgPkoDI3FgrBoThDmnmRdI5GyOU+a7sCS+6egTkIBeCTYtevlOy6Tnxb50sPr26EXO5xX1lWCjtgUhH9AlY0bF7Pi8sbLVgl4ABb0faX/YI92SOWRF5LB5LBmgtiAiYT1rzjmE6Kn9FLNAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAkVEt0kawrVPNdGzWdakK+R5ifsvvx1jlBrUiHxjzlKxqRw0BQDdNRLUIte/SkYz5mODYWEHs1G0D3CxxV1u13bvh5XZ9OmaDEnrHSPZmLRueTxTIYe3ia49hor6FMpQSkhimfBa72IpZkCb1nNLZbFGyFpTZBTlNyk+WX6dWIcQ=</X509Certificate></X509Data></KeyInfo><Object><as:Timestamp>MIIHiQYJKoZIhvcNAQcCoIIHejCCB3YCAQAxCzAJBgUrDgMCGgUAMIGRBgkqhkiG
+9w0BBwGggYMEgYCmja7I0/zgL85dkkPZ8w/8kn+MTlCtELOewrPJSca1fs5sYgrt
+2VID9ZZAmBvdCupTA9EnkJ1MQn+thCWojVGBkLyd/5xyWmWIbHkdA9+qU/kf1JyY
+7fZecV2NgswaZJ+Tlf6PxCj+rBbpLIbsaHyOgz9V8vSgty11ZuM+bF0v26CCBJgw
+ggSUMIIDfKADAgECAhEAn+rIEbDxYkel/CDYBSOs5jANBgkqhkiG9w0BAQUFADCB
+lTELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAlVUMRcwFQYDVQQHEw5TYWx0IExha2Ug
+Q2l0eTEeMBwGA1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3JrMSEwHwYDVQQLExho
+dHRwOi8vd3d3LnVzZXJ0cnVzdC5jb20xHTAbBgNVBAMTFFVUTi1VU0VSRmlyc3Qt
+T2JqZWN0MB4XDTE1MDUwNTAwMDAwMFoXDTE1MTIzMTIzNTk1OVowfjELMAkGA1UE
+BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2Fs
+Zm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQxJDAiBgNVBAMTG0NPTU9E
+TyBUaW1lIFN0YW1waW5nIFNpZ25lcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALw1oDZwIoERw7KDudMoxjbNJWupe7Ic9ptRnO819O0Ijl44CPh3PApC
+4PNw3KPXyvVMC8//IpwKfmjWCaIqhHumnbSpwTPi7x8XSMo6zUbmxap3veN3mvpH
+U0AoWUOT8aSB6u+AtU+nCM66brzKdgyXZFmGJLs9gpCoVbGS06CnBayfUyUIEEeZ
+zZjeaOW0UHijrwHMWUNY5HZufqzH4p4fT7BHLcgMo0kngHWMuwaRZQ+Qm/S60YHI
+XGrsFOklCb8jFvSVRkBAIbuDlv2GH3rIDRCOovgZB1h/n703AmDypOmdRD8wBeSn
+cJlRmugX8VXKsmGJZUanavJYRn6qoAcCAwEAAaOB9DCB8TAfBgNVHSMEGDAWgBTa
+7WR0FJwUPKvdmam9WyhNizzJ2DAdBgNVHQ4EFgQULi2wCkRK04fAAgfOl31QYiD9
+D4MwDgYDVR0PAQH/BAQDAgbAMAwGA1UdEwEB/wQCMAAwFgYDVR0lAQH/BAwwCgYI
+KwYBBQUHAwgwQgYDVR0fBDswOTA3oDWgM4YxaHR0cDovL2NybC51c2VydHJ1c3Qu
+Y29tL1VUTi1VU0VSRmlyc3QtT2JqZWN0LmNybDA1BggrBgEFBQcBAQQpMCcwJQYI
+KwYBBQUHMAGGGWh0dHA6Ly9vY3NwLnVzZXJ0cnVzdC5jb20wDQYJKoZIhvcNAQEF
+BQADggEBAA27rWARG7XwDczmSDp6Pg4z3By56tYg/qNN0Mx2TugY2Hnf00+aQmQj
+iilyijpsZqY8OheocEVlxnPD0M6JVPusaQ9YsBnLhp9+uX7rUZK/m93r0WXwJXuI
+fN69pci1FFG8wIEwioU4e+Z5/mdVk4f+T+iNDu3zcpK1womAbdFZ4x0N6rE47gOd
+ABmlqyGbecPMwj5ofr3JTWlNtGRR+7IodOJTic6d+q3i286re34GRHT9CqPJt6cw
+zUnSkmTxIqa4KEV0eemnzjsz+YNQlH1owB1Jx2B4ejxkJtW++gpt5B7hCVOPqcUj
+rMedYUIh8CwWcUk7EK8sbxrmMfEU/WwxggIyMIICLgIBADCBqzCBlTELMAkGA1UE
+BhMCVVMxCzAJBgNVBAgTAlVUMRcwFQYDVQQHEw5TYWx0IExha2UgQ2l0eTEeMBwG
+A1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3JrMSEwHwYDVQQLExhodHRwOi8vd3d3
+LnVzZXJ0cnVzdC5jb20xHTAbBgNVBAMTFFVUTi1VU0VSRmlyc3QtT2JqZWN0AhEA
+n+rIEbDxYkel/CDYBSOs5jAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqG
+SIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTUxMDI1MTEzNjM4WjAjBgkqhkiG9w0B
+CQQxFgQUUKGSz6I6A9VTnxozL/4Z6nvEGGQwDQYJKoZIhvcNAQEBBQAEggEAIDcr
+QSdY3Sj3V8pggzO7GXH7zPA8cQJnPcFgbl7WN4rP/9iUT3LuzAI24Gd0+W9D6DE8
+BOl2o5nIbdJwaYmqjlBK4QMLIzGF1LsqhJ1ezt6sk8MWgI3Th8706qjXAFz9eAIT
+YWa5NcOg3AifwaFel2mKZN7ukZuxmMOsiCngfYokN4JjTnUB76oFdLWjJO/nkXAt
+SNUq13lXGE36AYrKVABpQ2lO/0mnw/rizd5bfgxWXewRTCn2/bosCrJIOx6Y/Iz/
+AdYySC/36sOPgfHnzv2EBSirjtKD/dT9jzqTSyu3lp+xqxKXJd6QDqdeXqfgI9bz
+kPrb13Hd6dxwfosLWw==
+</as:Timestamp></Object></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

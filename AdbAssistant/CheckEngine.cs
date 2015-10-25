@@ -12,7 +12,7 @@ namespace AdbAssistant
     {
         public static bool SystemValidation(bool adbInstalledCheck)
         {
-            if (true)
+            if (adbInstalledCheck)
             {
                 int i = 0;
                 string ifAnyDevicesCheck;
@@ -32,16 +32,13 @@ namespace AdbAssistant
 
                 else if (ifAnyDevicesCheck.Trim().Equals("List of devices attached"))
                 {
-                    MessageBoxResult deviceIsNotConnected = MessageBox.Show("No device was found in your system. Try again?",
-                        "Hey! The thing is...", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    MessageBoxResult deviceIsNotConnected = MessageBox.Show("No device was found in your system. Probably you should install usb drivers for a device",
+                        "Hey! The thing is...", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     switch (deviceIsNotConnected)
                     {
                         case MessageBoxResult.OK:
                             CheckEngine.SystemValidation(true);
-                            break;
-                        case MessageBoxResult.Cancel:
-                            Application.Current.Shutdown();
                             break;
                     }
                     return false;
@@ -53,45 +50,48 @@ namespace AdbAssistant
             {
                 MessageBoxResult adbIsNotInstalled = MessageBox.Show("ADB is not found in your system", "Hey! The thing is...");
                 return false;
-            }            
+            }
         }
 
-        // Checks if application installed on the system
-        public static bool checkInstalled(string c_name)
-        {
-            string displayName;
 
-            string registryKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(registryKey);
-            if (key != null)
-            {
-                foreach (RegistryKey subkey in key.GetSubKeyNames().Select(keyName => key.OpenSubKey(keyName)))
-                {
-                    displayName = subkey.GetValue("DisplayName") as string;
-                    if (displayName != null && displayName.Contains(c_name))
-                    {
-                        return true;
-                    }
-                }
-                key.Close();
-            }
+        //Version 1.1
+        //Depricated!!! That functionality is overkill while adb.exe is delivered with the package
+        //Checks if SDK or Android Studio is installed on the system
+        //public static bool checkInstalled(string c_name)
+        //{
+        //    string displayName;
 
-            registryKey = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
-            key = Registry.LocalMachine.OpenSubKey(registryKey);
-            if (key != null)
-            {
-                foreach (RegistryKey subkey in key.GetSubKeyNames().Select(keyName => key.OpenSubKey(keyName)))
-                {
-                    displayName = subkey.GetValue("DisplayName") as string;
-                    if (displayName != null && displayName.Contains(c_name))
-                    {
-                        return true;
-                    }
-                }
-                key.Close();
-            }
-            return false;
-        }
+        //    string registryKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+        //    RegistryKey key = Registry.LocalMachine.OpenSubKey(registryKey);
+        //    if (key != null)
+        //    {
+        //        foreach (RegistryKey subkey in key.GetSubKeyNames().Select(keyName => key.OpenSubKey(keyName)))
+        //        {
+        //            displayName = subkey.GetValue("DisplayName") as string;
+        //            if (displayName != null && displayName.Contains(c_name))
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //        key.Close();
+        //    }
+
+        //    registryKey = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
+        //    key = Registry.LocalMachine.OpenSubKey(registryKey);
+        //    if (key != null)
+        //    {
+        //        foreach (RegistryKey subkey in key.GetSubKeyNames().Select(keyName => key.OpenSubKey(keyName)))
+        //        {
+        //            displayName = subkey.GetValue("DisplayName") as string;
+        //            if (displayName != null && displayName.Contains(c_name))
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //        key.Close();
+        //    }
+        //    return false;
+        //}
 
         public static Dictionary<string, string> DevicesAttached()
         {
@@ -113,6 +113,62 @@ namespace AdbAssistant
             }
             return deviceNumberName;
         }
+        
+        //Version 1.1
+        //public static int DeviceListsDifferent(Dictionary<string, string> currentList, string isCurrent)
+        //{
+        //    // a - b = c
+        //    //If device is DISCONNECTED
+        //    //Compares current device list and new list (DeviesAttatched method), if they are equal returns 0, if active device was disconnected returns -1;
+        //    //if not active device was disconnected returns 1
+        //    var freshDeviceList = new Dictionary<string, string>();
+        //    freshDeviceList = DevicesAttached();
+        //    var a = currentList.Values;
+        //    var b = freshDeviceList.Values;
+        //    var c = a.Except(b).ToList();
+        //    if (c.Count == 0)
+        //    {
+        //        return 0;
+        //    }
+
+        //    if (c.Contains(isCurrent))
+        //    {
+        //        MessageBox.Show("Active device was disconnected, heil new active device", "Hey! The thing is...", MessageBoxButton.OK);
+        //        return -1;
+        //    }
+        //    else
+        //    {
+        //        return 1;
+        //    }
+        //}
+
+        //Version 1.2
+        public static int DeviceListsDifferent(Dictionary<string, string> currentList, string isCurrent)
+        {
+            // a - b = c
+            //If device is DISCONNECTED
+            //Compares current device list and new list (DeviesAttatched method), if they are equal returns 0, if active device was disconnected returns -1;
+            //if not active device was disconnected returns 1. If the last device was disconnected returns 2.
+            var freshDeviceList = new Dictionary<string, string>();
+            freshDeviceList = DevicesAttached();
+            if (freshDeviceList.Count == 0) return 2;
+            var a = currentList.Values;
+            var b = freshDeviceList.Values;
+            var c = a.Except(b).ToList();
+            if (c.Count == 0)
+            {
+                return 0;
+            }
+
+            if (c.Contains(isCurrent))
+            {                
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
 
         public static bool DeviceListsDifferent(Dictionary<string, string> currentList)
         {
@@ -127,33 +183,6 @@ namespace AdbAssistant
                 return false;
             }
             return true;
-        }
-
-        public static int DeviceListsDifferent(Dictionary<string, string> currentList, string isCurrent)
-        {
-            // a - b = c
-            //If device is DISCONNECTED
-            //Compares current device list and new list (DeviesAttatched method), if they are equal returns 0, if active device was disconnected returns -1;
-            //if not active device was disconnected returns 1
-            var freshDeviceList = new Dictionary<string, string>();
-            freshDeviceList = DevicesAttached();
-            var a = currentList.Values;
-            var b = freshDeviceList.Values;
-            var c = a.Except(b).ToList();
-            if (c.Count == 0)
-            {
-                return 0;
-            }
- 
-            if (c.Contains(isCurrent))
-            {
-                MessageBox.Show("Active device was disconnected, heil new active device", "Hey! The thing is...", MessageBoxButton.OK);
-                return -1;
-            }
-            else
-            {
-                return 1;
-            }
         }
     }
 }

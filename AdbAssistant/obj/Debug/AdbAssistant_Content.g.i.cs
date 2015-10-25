@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("saturn.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("adb.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("adbwinapi.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("adbwinusbapi.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fastboot.exe")]
 
 

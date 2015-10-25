@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="AdbAssistant.exe" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="saturn.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="AdbAssistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="AdbAssistant.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AdbAssistant.exe" size="572040">
+      <assemblyIdentity name="AdbAssistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0dM7ilT8Nb13f7Rm8tShaXcKHgvxKyQp6hcmGkSHYkI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Management.Infrastructure.dll" size="122880">
+      <assemblyIdentity name="Microsoft.Management.Infrastructure" version="1.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JzmtY4YQ79aQJ3VM46eoWwculRbz1Rd/s6rh675vrnI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Management.Infrastructure.Native.dll" size="203776">
+      <assemblyIdentity name="Microsoft.Management.Infrastructure.Native" version="1.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tBY3iFYhoy80mg4nnshZV6zVvsmsOP97hyKGr6H+sRk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Management.Automation.dll" size="1370768">
+      <assemblyIdentity name="System.Management.Automation" version="3.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jjXYLi/i7EEWcP+jn1G2hDUQxYcnuXP4ujMRXHcdU64=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="adb.exe" size="1011200">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>io9rsnLvOdzsauk8zKLMM5wMjen9/fpsqKoTeIE8eQM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="AdbAssistant.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="AdbWinApi.dll" size="96256">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FKUUgqoAPbeaQA9LFcFYOX/m1X7mYGs9Yz+kMae/30s=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="AdbWinUsbApi.dll" size="60928">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BBxoWbtPx406kD3ZASmM0ez7dba+Bka3SVTNciKApAc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="fastboot.exe" size="196608">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aFClxw7A2NjiN53tlQ3tsb1QKcCa+jxrYHFcXWakKr4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="saturn.ico" size="16958">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rpLsYbvJdqeuZ8roJCjnuM8iVFK4LqE9TLfxOAOH1kY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on and is
+           is designed to work with. Uncomment the appropriate elements and Windows will 
+           automatically selected the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=LUNAM\Maksim" issuerKeyHash="92bd6ee610b7b7b9fc28babefc5913a7cd813a39" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>UBzk3/7U5t8dsMZfrULyA3oLz+39O4YI0Kh39TXJFTE=</DigestValue></Reference></SignedInfo><SignatureValue>Bb0gFPpIzVOZDXsfpDbmAyDhvgbABoHTahX84aIb6QtoRACb0O77prsE3U2h10+Hg1DccD3USCIjXxYSrSpw+u5arBz3EQxg7eOv75RdFsMvFzhy3Q/cj4ePGIRr6OrXFf5IMVytefdsfb9yrn0Wo9uphoyvHl8er16XO4lyfsU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tr2IywY6uEVxP8K99snSoruVSk12hJKA+SgMjcWCsGhOEOaeZF0jkbI5T5ruwJL7p6BOQgF4JNi16+U7LpOfFvnSw+vboRc7nFfWVYKO2BSEf0CVjRsXs+LyxstWCXgAFvR9pf9gj3ZI5ZEXksHksGaC2ICJhPWvOOYToqf0Us0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="3115c935f577a8d008863bfdedcf0b7a03f242ad5fc6b01ddfe6d4fedfe41c50" Description="" Url=""><as:assemblyIdentity name="AdbAssistant.exe" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LUNAM\Maksim</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>OijNYBGIKZ1Op9rDqhX9Dudtx48kPcZyuapbv/NItAs=</DigestValue></Reference></SignedInfo><SignatureValue>bYKFwxFjvZ9S+/BlUdxtdVlw1wx9x6t2Vg9ggiUVTgioaCCh00vJrUjYa1EGEIaTQKq3n6gK4RgQOuk6cSdsu+REwst6uHw1B6eXyuDhB3jYAu1+NAYndPlyoPiRgcxcMZ1v4Y26KLLxbvQgchDZ4tPsxqbNlNDQWWdEBtxVv88=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tr2IywY6uEVxP8K99snSoruVSk12hJKA+SgMjcWCsGhOEOaeZF0jkbI5T5ruwJL7p6BOQgF4JNi16+U7LpOfFvnSw+vboRc7nFfWVYKO2BSEf0CVjRsXs+LyxstWCXgAFvR9pf9gj3ZI5ZEXksHksGaC2ICJhPWvOOYToqf0Us0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQRVAg4anVYIVFHGtLosj6ZTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgATABVAE4AQQBNAFwATQBhAGsAcwBpAG0wHhcNMTUxMDI1MDgwMjU1WhcNMTYxMDI0MTQwMjU1WjAjMSEwHwYDVQQDHhgATABVAE4AQQBNAFwATQBhAGsAcwBpAG0wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALa9iMsGOrhFcT/CvfbJ0qK7lUpNdoSSgPkoDI3FgrBoThDmnmRdI5GyOU+a7sCS+6egTkIBeCTYtevlOy6Tnxb50sPr26EXO5xX1lWCjtgUhH9AlY0bF7Pi8sbLVgl4ABb0faX/YI92SOWRF5LB5LBmgtiAiYT1rzjmE6Kn9FLNAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAkVEt0kawrVPNdGzWdakK+R5ifsvvx1jlBrUiHxjzlKxqRw0BQDdNRLUIte/SkYz5mODYWEHs1G0D3CxxV1u13bvh5XZ9OmaDEnrHSPZmLRueTxTIYe3ia49hor6FMpQSkhimfBa72IpZkCb1nNLZbFGyFpTZBTlNyk+WX6dWIcQ=</X509Certificate></X509Data></KeyInfo><Object><as:Timestamp>MIIHiQYJKoZIhvcNAQcCoIIHejCCB3YCAQAxCzAJBgUrDgMCGgUAMIGRBgkqhkiG
+9w0BBwGggYMEgYBtgoXDEWO9n1L78GVR3G11WXDXDH3Hq3ZWD2CCJRVOCKhoIKHT
+S8mtSNhrUQYQhpNAqrefqArhGBA66TpxJ2y75ETCy3q4fDUHp5fK4OEHeNgC7X40
+Bid0+XKg+JGBzFwxnW/hjboosvFu9CByENni0+zGps2U0NBZZ0QG3FW/z6CCBJgw
+ggSUMIIDfKADAgECAhEAn+rIEbDxYkel/CDYBSOs5jANBgkqhkiG9w0BAQUFADCB
+lTELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAlVUMRcwFQYDVQQHEw5TYWx0IExha2Ug
+Q2l0eTEeMBwGA1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3JrMSEwHwYDVQQLExho
+dHRwOi8vd3d3LnVzZXJ0cnVzdC5jb20xHTAbBgNVBAMTFFVUTi1VU0VSRmlyc3Qt
+T2JqZWN0MB4XDTE1MDUwNTAwMDAwMFoXDTE1MTIzMTIzNTk1OVowfjELMAkGA1UE
+BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2Fs
+Zm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQxJDAiBgNVBAMTG0NPTU9E
+TyBUaW1lIFN0YW1waW5nIFNpZ25lcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALw1oDZwIoERw7KDudMoxjbNJWupe7Ic9ptRnO819O0Ijl44CPh3PApC
+4PNw3KPXyvVMC8//IpwKfmjWCaIqhHumnbSpwTPi7x8XSMo6zUbmxap3veN3mvpH
+U0AoWUOT8aSB6u+AtU+nCM66brzKdgyXZFmGJLs9gpCoVbGS06CnBayfUyUIEEeZ
+zZjeaOW0UHijrwHMWUNY5HZufqzH4p4fT7BHLcgMo0kngHWMuwaRZQ+Qm/S60YHI
+XGrsFOklCb8jFvSVRkBAIbuDlv2GH3rIDRCOovgZB1h/n703AmDypOmdRD8wBeSn
+cJlRmugX8VXKsmGJZUanavJYRn6qoAcCAwEAAaOB9DCB8TAfBgNVHSMEGDAWgBTa
+7WR0FJwUPKvdmam9WyhNizzJ2DAdBgNVHQ4EFgQULi2wCkRK04fAAgfOl31QYiD9
+D4MwDgYDVR0PAQH/BAQDAgbAMAwGA1UdEwEB/wQCMAAwFgYDVR0lAQH/BAwwCgYI
+KwYBBQUHAwgwQgYDVR0fBDswOTA3oDWgM4YxaHR0cDovL2NybC51c2VydHJ1c3Qu
+Y29tL1VUTi1VU0VSRmlyc3QtT2JqZWN0LmNybDA1BggrBgEFBQcBAQQpMCcwJQYI
+KwYBBQUHMAGGGWh0dHA6Ly9vY3NwLnVzZXJ0cnVzdC5jb20wDQYJKoZIhvcNAQEF
+BQADggEBAA27rWARG7XwDczmSDp6Pg4z3By56tYg/qNN0Mx2TugY2Hnf00+aQmQj
+iilyijpsZqY8OheocEVlxnPD0M6JVPusaQ9YsBnLhp9+uX7rUZK/m93r0WXwJXuI
+fN69pci1FFG8wIEwioU4e+Z5/mdVk4f+T+iNDu3zcpK1womAbdFZ4x0N6rE47gOd
+ABmlqyGbecPMwj5ofr3JTWlNtGRR+7IodOJTic6d+q3i286re34GRHT9CqPJt6cw
+zUnSkmTxIqa4KEV0eemnzjsz+YNQlH1owB1Jx2B4ejxkJtW++gpt5B7hCVOPqcUj
+rMedYUIh8CwWcUk7EK8sbxrmMfEU/WwxggIyMIICLgIBADCBqzCBlTELMAkGA1UE
+BhMCVVMxCzAJBgNVBAgTAlVUMRcwFQYDVQQHEw5TYWx0IExha2UgQ2l0eTEeMBwG
+A1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3JrMSEwHwYDVQQLExhodHRwOi8vd3d3
+LnVzZXJ0cnVzdC5jb20xHTAbBgNVBAMTFFVUTi1VU0VSRmlyc3QtT2JqZWN0AhEA
+n+rIEbDxYkel/CDYBSOs5jAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqG
+SIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTUxMDI1MTEzNjM1WjAjBgkqhkiG9w0B
+CQQxFgQUki3mKbr7w7Wt49+HY0jdr6a9bOYwDQYJKoZIhvcNAQEBBQAEggEAGeW0
+v+7w98fZUVSrvvW0pgfr3WaiqR+KBRYhTucnfcrR7eiv+x9RyWgzLYWGO32imzyl
+87Lq8Jo1zGa61jl5T8QRJLQfJ+vRtohPvKJ/eHxkKRAK9S/HQtZOJauMhnD4eUAV
+mDW/Cv6kVMXs1JtEwJtoNNCyyB2nEhEWb9n3zpVLfAfcDOSrkFy7eIPFxjWKjn78
+XsjJ5rpyHi1Q2ncy868JZsAXUHzBvJxKUHM6UYQKJTyBde/DLqR3k8EsTWgqtuog
+Pdf2JTxKwSAw6zoLzg7IGnn2Nf4eEhh14JDHRougEvWMy9RQSi5fydpEFZZmA7O0
+wfabIQgu6jh61bvCtA==
+</as:Timestamp></Object></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
