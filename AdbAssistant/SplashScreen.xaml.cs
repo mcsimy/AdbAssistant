@@ -22,6 +22,14 @@ namespace AdbAssistant
         public SplashScreen()
         {
             InitializeComponent();
+            //Version version = Assembly.GetEntryAssembly().GetName().Version;
+            
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            {
+                versionLable.Content = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+
+            }
+            else versionLable.Content = "0.0.0.0";
         }
     }
 }

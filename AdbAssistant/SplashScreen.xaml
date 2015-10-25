@@ -8,7 +8,8 @@
         Title="SplashScreen" Height="200" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" MinWidth="300" MinHeight="200" MaxWidth="300" MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Disabled" ShowInTaskbar="False">
     <Grid Width="300" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.Background>
-            <ImageBrush ImageSource="Resources/SplashScreen.ico"/>
+            <ImageBrush ImageSource="Resources/Splash.png"/>
         </Grid.Background>
+        <Label x:Name="versionLable" Content="0.0.0.0" HorizontalAlignment="Left" Margin="162,18,0,0" VerticalAlignment="Top" Foreground="#FF935BC1"/>
     </Grid>
 </Window>

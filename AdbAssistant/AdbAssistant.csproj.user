@@ -4,11 +4,11 @@
     <PublishUrlHistory>publish\|ftp://mcs-deploy.co.nf/stg/</PublishUrlHistory>
     <InstallUrlHistory>\\localhost\Users\Maksim\Desktop\UAT\|http://mcs-deploy.co.nf/|http://mcs-deploy.co.nf/uat/AdbAssistant/|http://mcs-deploy.co.nf/uat/AdbAssistant|http://mcs-deploy.co.nf/uat/</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>\\localhost\Users\Maksim\Desktop\UAT\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
-    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

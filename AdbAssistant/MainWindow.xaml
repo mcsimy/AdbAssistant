@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdbAssistant"
         mc:Ignorable="d"
-        Title="AdbAssistant" Height="420" Width="270" MinWidth="270" MinHeight="420" Loaded ="Window_Loaded" Closed="Window_Closed" Icon="saturn.ico" WindowStartupLocation="CenterScreen" Background="#FF641D1D">
+        Title="AdbAssistant" Height="420" Width="270" MinWidth="270" MinHeight="420" Loaded ="Window_Loaded" Closed="Window_Closed" Icon="Resources/icon.png" WindowStartupLocation="CenterScreen" Background="#FF641D1D">
     <Grid Background="#FF252527">
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>

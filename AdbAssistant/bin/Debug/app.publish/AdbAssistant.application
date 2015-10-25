@@ -1,34 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <assemblyIdentity name="AdbAssistant.application" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <assemblyIdentity name="AdbAssistant.application" version="1.0.1.2" publicKeyToken="8d5e2fb519594d07" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="McS" asmv2:product="AdbAssistant" xmlns="urn:schemas-microsoft-com:asm.v1" />
-  <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true">
-    <subscription>
-      <update>
-        <beforeApplicationStartup />
-      </update>
-    </subscription>
-    <deploymentProvider codebase="file://localhost/Users/Maksim/Desktop/UAT/AdbAssistant.application" />
-  </deployment>
+  <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Application Files\AdbAssistant_1_0_0_6\AdbAssistant.exe.manifest" size="15023">
-      <assemblyIdentity name="AdbAssistant.exe" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" type="win32" />
+    <dependentAssembly dependencyType="install" codebase="Application Files\AdbAssistant_1_0_1_2\AdbAssistant.exe.manifest" size="15069">
+      <assemblyIdentity name="AdbAssistant.exe" version="1.0.1.2" publicKeyToken="8d5e2fb519594d07" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>juqsRl63El+NTqvHBopLtQvlgNKwMdrlD7m0OKEzZME=</dsig:DigestValue>
+        <dsig:DigestValue>zJQAv0jjr4Yfwg2V3sJibAar8Q/+w9K4iZMRh/hnE9Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-<publisherIdentity name="CN=LUNAM\Maksim" issuerKeyHash="92bd6ee610b7b7b9fc28babefc5913a7cd813a39" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>B0cQLoi3Teh9zaNb2d9xcS6++PvAjOGc5zDMLrldhP8=</DigestValue></Reference></SignedInfo><SignatureValue>d25bH+k5W0OAxieHLynPk4NQynwEi1XCoNtk3dD0Q4oFGgV77UQ2RFtKMnYRgW3H9Jrg9o7h7O8JjyXYYB5eJ/IOWXbaB/gn2FjhphVUKj+g+ovK++2VAf4euGqdQFsugt45eApoVK4z9Y7M3Og7laqVE7vgTSdrD6jrD4QNACY=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tr2IywY6uEVxP8K99snSoruVSk12hJKA+SgMjcWCsGhOEOaeZF0jkbI5T5ruwJL7p6BOQgF4JNi16+U7LpOfFvnSw+vboRc7nFfWVYKO2BSEf0CVjRsXs+LyxstWCXgAFvR9pf9gj3ZI5ZEXksHksGaC2ICJhPWvOOYToqf0Us0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ff845db92ecc30e79ce18cc0fbf8be2e7171dfd95ba3cd7de84db7882e104707" Description="" Url=""><as:assemblyIdentity name="AdbAssistant.application" version="1.0.0.6" publicKeyToken="e30e47f2293306d6" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LUNAM\Maksim</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>681b0Gjs2m54Caz5bDBpQH7GOj/WHZHUfdbH7YqhY84=</DigestValue></Reference></SignedInfo><SignatureValue>po2uyNP84C/OXZJD2fMP/JJ/jE5QrRCznsKzyUnGtX7ObGIK7dlSA/WWQJgb3QrqUwPRJ5CdTEJ/rYQlqI1RgZC8nf+cclpliGx5HQPfqlP5H9ScmO32XnFdjYLMGmSfk5X+j8Qo/qwW6SyG7Gh8joM/VfL0oLctdWbjPmxdL9s=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tr2IywY6uEVxP8K99snSoruVSk12hJKA+SgMjcWCsGhOEOaeZF0jkbI5T5ruwJL7p6BOQgF4JNi16+U7LpOfFvnSw+vboRc7nFfWVYKO2BSEf0CVjRsXs+LyxstWCXgAFvR9pf9gj3ZI5ZEXksHksGaC2ICJhPWvOOYToqf0Us0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQRVAg4anVYIVFHGtLosj6ZTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgATABVAE4AQQBNAFwATQBhAGsAcwBpAG0wHhcNMTUxMDI1MDgwMjU1WhcNMTYxMDI0MTQwMjU1WjAjMSEwHwYDVQQDHhgATABVAE4AQQBNAFwATQBhAGsAcwBpAG0wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALa9iMsGOrhFcT/CvfbJ0qK7lUpNdoSSgPkoDI3FgrBoThDmnmRdI5GyOU+a7sCS+6egTkIBeCTYtevlOy6Tnxb50sPr26EXO5xX1lWCjtgUhH9AlY0bF7Pi8sbLVgl4ABb0faX/YI92SOWRF5LB5LBmgtiAiYT1rzjmE6Kn9FLNAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAkVEt0kawrVPNdGzWdakK+R5ifsvvx1jlBrUiHxjzlKxqRw0BQDdNRLUIte/SkYz5mODYWEHs1G0D3CxxV1u13bvh5XZ9OmaDEnrHSPZmLRueTxTIYe3ia49hor6FMpQSkhimfBa72IpZkCb1nNLZbFGyFpTZBTlNyk+WX6dWIcQ=</X509Certificate></X509Data></KeyInfo><Object><as:Timestamp>MIIHiQYJKoZIhvcNAQcCoIIHejCCB3YCAQAxCzAJBgUrDgMCGgUAMIGRBgkqhkiG
-9w0BBwGggYMEgYCmja7I0/zgL85dkkPZ8w/8kn+MTlCtELOewrPJSca1fs5sYgrt
-2VID9ZZAmBvdCupTA9EnkJ1MQn+thCWojVGBkLyd/5xyWmWIbHkdA9+qU/kf1JyY
-7fZecV2NgswaZJ+Tlf6PxCj+rBbpLIbsaHyOgz9V8vSgty11ZuM+bF0v26CCBJgw
+<publisherIdentity name="CN=AURELIUS\maxye" issuerKeyHash="580148e4f85f45444e04641ae19a14d11fb71dcd" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>KS/kaIlspfLVDaMRVIIEkl/yuMXE3xwnfUfHP6T/G7o=</DigestValue></Reference></SignedInfo><SignatureValue>PjF2p4ERemWMIA0qZCiLasWzDRjgQJ7RmiK2zFapBoYbgSRHsHFpvTTq/1AKgcAC5I1ocAqFb5tXZOKO2jR3fhJFg7CZYmaDStDfLXc5Puqjp4eIOO1jGazuIJFKk2p+RUU1Vm3axUtNpBMfKHxSIgqYYf2STvme3sJH50+diK8=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>pKSzZzh+7HXEecjpvxtiGIwLfJ1hGFzycgHdFs45xukVGBV6AoYFZPYW4vZ2aFF9JMeMPwq84bDWVruNldo73KndX6IiitSwoFjSjjIft66BcRA5InS0Sxr1IaRdpR3214zViMjNEYVaFdU3j0eVH1/PgXL79zEWXMt1McbRJ0M=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ba1bffa43fc7477d271cdfc4c5b8f25f9204825411a30dd5f2a56c8968e42f29" Description="" Url=""><as:assemblyIdentity name="AdbAssistant.application" version="1.0.1.2" publicKeyToken="8d5e2fb519594d07" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=AURELIUS\maxye</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>1EBR7ifdHJL+1jA+RaT6e+UZB64lIqEwGp29CVEFTz8=</DigestValue></Reference></SignedInfo><SignatureValue>fc4YTBnOBJI8XfQvsvt20gCM7HAD8N9O9oi5pqiQx8tuvTGkOvB+kyPw8SMmSaA0YlCKCz0YnCC/H2xrzy4jUGG1uQBWRiKHPfPPU54fi0m7ZDXQtAFjLEijvS4cXcZ3NHbr3vPlxaOceYD1II6r6souz4D2Ew5TBvovqoJDIiA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pKSzZzh+7HXEecjpvxtiGIwLfJ1hGFzycgHdFs45xukVGBV6AoYFZPYW4vZ2aFF9JMeMPwq84bDWVruNldo73KndX6IiitSwoFjSjjIft66BcRA5InS0Sxr1IaRdpR3214zViMjNEYVaFdU3j0eVH1/PgXL79zEWXMt1McbRJ0M=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQRxgDIFUKp4pAT3CManewvjANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAQQBVAFIARQBMAEkAVQBTAFwAbQBhAHgAeQBlMB4XDTE1MTAyNTE3MjIxMVoXDTE2MTAyNDIzMjIxMVowJzElMCMGA1UEAx4cAEEAVQBSAEUATABJAFUAUwBcAG0AYQB4AHkAZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEApKSzZzh+7HXEecjpvxtiGIwLfJ1hGFzycgHdFs45xukVGBV6AoYFZPYW4vZ2aFF9JMeMPwq84bDWVruNldo73KndX6IiitSwoFjSjjIft66BcRA5InS0Sxr1IaRdpR3214zViMjNEYVaFdU3j0eVH1/PgXL79zEWXMt1McbRJ0MCAwEAATANBgkqhkiG9w0BAQsFAAOBgQA8jM8/G1reFBE9avmUuK6AQ1+YfRauhft5qoZ/2K4+iz0pW9zXY8Dw1Qo62NZ+iKoFj4KcnxbnETvS+DkwLNVPBSMvXdNG5Z48rGYc7MFUDR+ITdmBQ182MSNRblFyjF1tErZFj8Cq0ukA7RcbxNlP/mnH+Sx9tqzwFTn7rkDmXQ==</X509Certificate></X509Data></KeyInfo><Object><as:Timestamp>MIIHiQYJKoZIhvcNAQcCoIIHejCCB3YCAQAxCzAJBgUrDgMCGgUAMIGRBgkqhkiG
+9w0BBwGggYMEgYB9zhhMGc4Ekjxd9C+y+3bSAIzscAPw3072iLmmqJDHy269MaQ6
+8H6TI/DxIyZJoDRiUIoLPRicIL8fbGvPLiNQYbW5AFZGIoc9889Tnh+LSbtkNdC0
+AWMsSKO9Lhxdxnc0duve8+XFo5x5gPUgjqvqyi7PgPYTDlMG+i+qgkMiIKCCBJgw
 ggSUMIIDfKADAgECAhEAn+rIEbDxYkel/CDYBSOs5jANBgkqhkiG9w0BAQUFADCB
 lTELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAlVUMRcwFQYDVQQHEw5TYWx0IExha2Ug
 Q2l0eTEeMBwGA1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3JrMSEwHwYDVQQLExho
@@ -58,12 +51,12 @@ BhMCVVMxCzAJBgNVBAgTAlVUMRcwFQYDVQQHEw5TYWx0IExha2UgQ2l0eTEeMBwG
 A1UEChMVVGhlIFVTRVJUUlVTVCBOZXR3b3JrMSEwHwYDVQQLExhodHRwOi8vd3d3
 LnVzZXJ0cnVzdC5jb20xHTAbBgNVBAMTFFVUTi1VU0VSRmlyc3QtT2JqZWN0AhEA
 n+rIEbDxYkel/CDYBSOs5jAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqG
-SIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTUxMDI1MTEzNjM4WjAjBgkqhkiG9w0B
-CQQxFgQUUKGSz6I6A9VTnxozL/4Z6nvEGGQwDQYJKoZIhvcNAQEBBQAEggEAIDcr
-QSdY3Sj3V8pggzO7GXH7zPA8cQJnPcFgbl7WN4rP/9iUT3LuzAI24Gd0+W9D6DE8
-BOl2o5nIbdJwaYmqjlBK4QMLIzGF1LsqhJ1ezt6sk8MWgI3Th8706qjXAFz9eAIT
-YWa5NcOg3AifwaFel2mKZN7ukZuxmMOsiCngfYokN4JjTnUB76oFdLWjJO/nkXAt
-SNUq13lXGE36AYrKVABpQ2lO/0mnw/rizd5bfgxWXewRTCn2/bosCrJIOx6Y/Iz/
-AdYySC/36sOPgfHnzv2EBSirjtKD/dT9jzqTSyu3lp+xqxKXJd6QDqdeXqfgI9bz
-kPrb13Hd6dxwfosLWw==
+SIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTUxMDI1MTkzNjI0WjAjBgkqhkiG9w0B
+CQQxFgQUJVqNpB2yO+Q6dqrcUgP9Z8mlDyUwDQYJKoZIhvcNAQEBBQAEggEAhM5g
+KDws32GJ2CBqziW04lATY3nQKateSpdyVwUjzURfDZbz9weT2GhXuI57suKtJgBZ
+OVyBqxM/Scfh/nG+GxWL9441IicdOgbNV4cwrGEbOpgatJXlUIvGCW49yvetC/VZ
+GwEhuIE5HvtdOKgPWF7MT1lq5ELCRWU8GlQ6xH0X8edEXopenN0OdljOiJXMvDCc
+P7J5k1mP6K06v7dmrBeu6zLSlL6rBf7uTBC3tXAvc2KGnglDZfqdf6ceqJeagv1u
+zD9zsHvzsJesoMUUq5t3xZvDQMSq3xvvFi1dSll4a4t7SkCLfWuS6oCeEvGF+vur
+keXiuT7gYQtSHZVTmQ==
 </as:Timestamp></Object></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

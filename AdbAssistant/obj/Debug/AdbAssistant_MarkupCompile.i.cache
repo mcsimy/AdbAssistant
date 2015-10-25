@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\Maksim\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\
+C:\Users\maxye\Dropbox\Projects\AdbAssistant\AdbAssistant\obj\Debug\
 AdbAssistant
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 3-604515922
 41851195541
-16-397575063
+16600585684
 171840036858
 App.xaml;MainWindow.xaml;SplashScreen.xaml;
 
-False
+True
 

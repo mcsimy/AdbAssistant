@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Management.Automation;
+//using System.Windows.Data;
+//using System.Windows.Documents;
+//using System.Windows.Input;
+//using System.Windows.Media;
+//using System.Windows.Media.Imaging;
+//using System.Windows.Navigation;
+//using System.Windows.Shapes;
+//using System.Management.Automation;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.IO;
-using System.Runtime.Remoting;
+//using System.Runtime.Remoting;
 using System.Windows.Interop;
-using System.Deployment;
 
 
 
@@ -228,9 +227,10 @@ namespace AdbAssistant
             //Version 1.2
             var sb = new StringBuilder();
             sb.Append(DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss"));
-            ProcessBuilder.ProcessNew("shell screencap -p /sdcard/" + sb.ToString() + ".png", device.activeDeviceNo);
-            ProcessBuilder.ProcessNew("pull /sdcard/" + sb.ToString() + ".png screenshots", device.activeDeviceNo);
-            ProcessBuilder.ProcessNew("shell rm -r /sdcard/" + sb.ToString() + ".png", device.activeDeviceNo);
+            sb.Append(".png");
+            ProcessBuilder.ProcessNew("shell screencap -p /sdcard/" + sb.ToString(), device.activeDeviceNo);
+            ProcessBuilder.ProcessNew("pull /sdcard/" + sb.ToString() + " Screenshots\\" + sb.ToString(), device.activeDeviceNo);
+            ProcessBuilder.ProcessNew("shell rm -r /sdcard/" + sb.ToString(), device.activeDeviceNo);
         }
 
         // starts HoV
